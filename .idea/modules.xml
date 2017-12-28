@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Shopping.iml" filepath="$PROJECT_DIR$/Shopping.iml" />
+      <module fileurl="file://$PROJECT_DIR$/and_core/and_core.iml" filepath="$PROJECT_DIR$/and_core/and_core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/and_shop/and_shop.iml" filepath="$PROJECT_DIR$/and_shop/and_shop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java_annotations/java_annotations.iml" filepath="$PROJECT_DIR$/java_annotations/java_annotations.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java_compiler/java_compiler.iml" filepath="$PROJECT_DIR$/java_compiler/java_compiler.iml" />
+    </modules>
+  </component>
+</project>
