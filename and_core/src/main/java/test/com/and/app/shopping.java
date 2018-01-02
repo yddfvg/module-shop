@@ -15,7 +15,11 @@ public final class shopping {
          return configurator.getInstance();
      }
 
-     private static WeakHashMap<String,Object> getConfigurator(){
+     public static WeakHashMap<String,Object> getConfigurator(){
          return configurator.getInstance().getShopConfings();
+     }
+
+     public static Context getApplication(){
+         return (Context) getConfigurator().get(ConfigType.APPLICATION_CONTEXT.name());
      }
 }
