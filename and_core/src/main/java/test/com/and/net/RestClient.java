@@ -6,9 +6,12 @@ import java.util.Map;
 import java.util.WeakHashMap;
 
 import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
 import test.com.and.net.CallBalock.IFaillure;
 import test.com.and.net.CallBalock.IRequset;
 import test.com.and.net.CallBalock.ISuccess;
+import test.com.and.net.CallBalock.RequestCallBlacks;
 import test.com.and.net.CallBalock.iError;
 
 /**
@@ -45,4 +48,60 @@ public class RestClient {
     public static RestClientBuilder builder(){
         return new RestClientBuilder();
     }
+
+    private void request(HttpMethod method){
+        final RestService service = RestCreator.getRestService();
+        Call<String> call = null;
+
+        if (iRequset != null) {
+            iRequset.onRequestStart();
+        }
+
+        switch (method) {
+            case GET:
+                call = service.get(URL,PARMS);
+                break;
+            case POST:
+                call = service.post(URL,PARMS);
+                break;
+            case PUT:
+                call = service.put(URL,PARMS);
+                break;
+            case DELETE:
+                call = service.delet(URL,PARMS);
+                break;
+            default:
+                break;
+        }
+
+        if (call != null) {
+            call.enqueue(getRequestCallback());
+        }
+    }
+
+    private Callback<String> getRequestCallback(){
+        return new RequestCallBlacks(
+                iRequset,
+                iSuccess,
+                iFaillure,
+                iError
+        );
+    }
+
+    public final void get(){
+        request(HttpMethod.GET);
+    }
+
+    public final void post(){
+        request(HttpMethod.POST);
+    }
+
+    public final void put(){
+        request(HttpMethod.PUT);
+    }
+
+    public final void delete(){
+        request(HttpMethod.DELETE);
+    }
+
 }

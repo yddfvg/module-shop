@@ -14,6 +14,7 @@ public class MyApplication extends Application{
     public void onCreate() {
         super.onCreate();
         shopping.init(this)
+                .withApiHost("https://www.baidu.com/")
                 .configure();
     }
 }

@@ -31,7 +31,6 @@ public class configurator {
         private static final configurator INSTANCE = new configurator();
     }
 
-
     public final void configure(){
         SHOP_CONFINGS.put(ConfigType.CONFIG_READY.name(),true);
     }
