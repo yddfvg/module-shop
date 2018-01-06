@@ -1,5 +1,6 @@
 package test.com.and.net;
 
+import android.content.Context;
 import android.support.v7.app.AlertDialog;
 
 import java.util.Map;
@@ -13,6 +14,8 @@ import test.com.and.net.CallBalock.IRequset;
 import test.com.and.net.CallBalock.ISuccess;
 import test.com.and.net.CallBalock.RequestCallBlacks;
 import test.com.and.net.CallBalock.iError;
+import test.com.and.ui.loader.LoaderStyle;
+import test.com.and.ui.loader.ShoppingLoader;
 
 /**
  * Created by lh on 2018/1/2.
@@ -29,13 +32,15 @@ public class RestClient {
     private final IFaillure iFaillure;
     private final iError iError;
     private final RequestBody requestBody;
+    private final LoaderStyle mLoaderStyle;
+    private final Context mContext;
 
     public RestClient(String URL, Map<String, Object> parms,
                       IRequset iRequset,
                       ISuccess iSuccess,
                       IFaillure iFaillure,
                       test.com.and.net.CallBalock.iError iError,
-                      RequestBody requestBody) {
+                      RequestBody requestBody,LoaderStyle mLoaderStyle,Context mContext) {
         this.URL = URL;
         PARMS.putAll(parms);
         this.iRequset = iRequset;
@@ -43,6 +48,8 @@ public class RestClient {
         this.iFaillure = iFaillure;
         this.iError = iError;
         this.requestBody = requestBody;
+        this.mLoaderStyle = mLoaderStyle;
+        this.mContext = mContext;
     }
 
     public static RestClientBuilder builder(){
@@ -55,6 +62,10 @@ public class RestClient {
 
         if (iRequset != null) {
             iRequset.onRequestStart();
+        }
+
+        if (mLoaderStyle != null) {
+            ShoppingLoader.showLoading(mContext,mLoaderStyle);
         }
 
         switch (method) {
@@ -84,7 +95,8 @@ public class RestClient {
                 iRequset,
                 iSuccess,
                 iFaillure,
-                iError
+                iError,
+                mLoaderStyle
         );
     }
 

@@ -24,12 +24,13 @@ public class ExampleDelegate extends ShoppingDelegate {
     //对每一个控件进行的操作
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
-//        testRestClient();
+        testRestClient();
     }
 
-/*    private void testRestClient(){
+    private void testRestClient(){
         RestClient.builder()
                 .url("https://www.baidu.com")
+                .loader(getContext())
                 .success(new ISuccess() {
                     @Override
                     public void onSuccess(String response) {
@@ -43,5 +44,5 @@ public class ExampleDelegate extends ShoppingDelegate {
                     }
                 })
                 .build().get();
-    }*/
+    }
 }

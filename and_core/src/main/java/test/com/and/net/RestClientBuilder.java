@@ -1,5 +1,7 @@
 package test.com.and.net;
 
+import android.content.Context;
+
 import java.util.Map;
 import java.util.WeakHashMap;
 
@@ -9,19 +11,22 @@ import test.com.and.net.CallBalock.IFaillure;
 import test.com.and.net.CallBalock.IRequset;
 import test.com.and.net.CallBalock.ISuccess;
 import test.com.and.net.CallBalock.iError;
+import test.com.and.ui.loader.LoaderStyle;
 
 /**
  * Created by ${lh} on 2018/1/2.
  */
 
 public class RestClientBuilder {
-    private  String URL;
+    private  String URL = null;
     private static Map<String,Object> PARAMS = RestCreator.getParams();
-    private  IRequset iRequset;
-    private  ISuccess iSuccess;
-    private  IFaillure iFaillure;
-    private  test.com.and.net.CallBalock.iError iError;
-    private  RequestBody requestBody;
+    private  IRequset iRequset = null;
+    private  ISuccess iSuccess = null;
+    private  IFaillure iFaillure = null;
+    private  iError iError = null;
+    private  RequestBody requestBody = null;
+    private LoaderStyle loaderStyle = null;
+    private Context context = null;
 
     RestClientBuilder() {
     }
@@ -66,7 +71,20 @@ public class RestClientBuilder {
         return this;
     }
 
+    public final RestClientBuilder loader(LoaderStyle loaderStyle,Context context){
+        this.loaderStyle = loaderStyle;
+        this.context = context;
+        return this;
+    }
+
+    public final RestClientBuilder loader(Context context){
+        this.loaderStyle = LoaderStyle.BallClipRotateMultipleIndicator;
+        this.context = context;
+        return this;
+    }
+
+
     public final RestClient build(){
-        return new RestClient(URL,PARAMS,iRequset,iSuccess,iFaillure,iError,requestBody);
+        return new RestClient(URL,PARAMS,iRequset,iSuccess,iFaillure,iError,requestBody,loaderStyle,context);
     }
 }
