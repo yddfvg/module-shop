@@ -18,6 +18,7 @@ import test.com.and.net.CallBalock.IRequset;
 import test.com.and.net.CallBalock.ISuccess;
 import test.com.and.net.CallBalock.RequestCallBlacks;
 import test.com.and.net.CallBalock.iError;
+import test.com.and.net.download.DownloadHandler;
 import test.com.and.ui.loader.LoaderStyle;
 import test.com.and.ui.loader.ShoppingLoader;
 
@@ -38,6 +39,9 @@ public class RestClient {
     private final RequestBody requestBody;
     private final LoaderStyle mLoaderStyle;
     private final File file;
+    private final String download_dir;
+    private final String extension;
+    private final String name;
     private final Context mContext;
 
     public RestClient(String URL, Map<String, Object> parms,
@@ -45,7 +49,13 @@ public class RestClient {
                       ISuccess iSuccess,
                       IFaillure iFaillure,
                       test.com.and.net.CallBalock.iError iError,
-                      RequestBody requestBody,LoaderStyle mLoaderStyle,Context mContext,File file) {
+                      RequestBody requestBody,
+                      LoaderStyle mLoaderStyle,
+                      Context mContext,
+                      File file,
+                      String download_dir,
+                      String extension,
+                      String name) {
         this.URL = URL;
         PARMS.putAll(parms);
         this.iRequset = iRequset;
@@ -56,6 +66,9 @@ public class RestClient {
         this.mLoaderStyle = mLoaderStyle;
         this.mContext = mContext;
         this.file = file;
+        this.download_dir = download_dir;
+        this.extension = extension;
+        this.name = name;
     }
 
     public static RestClientBuilder builder(){
@@ -150,4 +163,11 @@ public class RestClient {
         request(HttpMethod.DELETE);
     }
 
+    public final void upload(){
+        request(HttpMethod.UPLOAD);
+    }
+
+    public final void download(){
+        new DownloadHandler(URL,iRequset,iSuccess,iFaillure,iError,download_dir,extension,name).handlerDownload();
+    }
 }
