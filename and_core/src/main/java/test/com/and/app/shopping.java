@@ -11,15 +11,19 @@ import java.util.WeakHashMap;
 public final class shopping {
 
      public static configurator init(Context context){
-         getConfigurator().put(ConfigType.APPLICATION_CONTEXT.name(),context);
+         getConfigurator().put(ConfigType.APPLICATION_CONTEXT,context);
          return configurator.getInstance();
      }
 
-     public static WeakHashMap<String,Object> getConfigurator(){
+     public static WeakHashMap<Object,Object> getConfigurator(){
          return configurator.getInstance().getShopConfings();
      }
 
      public static Context getApplication(){
-         return (Context) getConfigurator().get(ConfigType.APPLICATION_CONTEXT.name());
+         return (Context) getConfigurator().get(ConfigType.APPLICATION_CONTEXT);
+     }
+
+     public static <T> T getConfiguration(Object key){
+       return configurator.getInstance().getConfiguration(key);
      }
 }
