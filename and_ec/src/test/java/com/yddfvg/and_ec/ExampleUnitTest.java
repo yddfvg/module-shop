@@ -1,4 +1,4 @@
-package test.com.and.shop;
+package com.yddfvg.and_ec;
 
 import org.junit.Test;
 

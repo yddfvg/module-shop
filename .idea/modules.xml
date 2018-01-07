@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://E:\shopping\module-shop\module-shop\Shopping.iml" filepath="E:\shopping\module-shop\module-shop\Shopping.iml" />
       <module fileurl="file://$PROJECT_DIR$/and_core/and_core.iml" filepath="$PROJECT_DIR$/and_core/and_core.iml" />
-      <module fileurl="file://$PROJECT_DIR$/and_shop/and_shop.iml" filepath="$PROJECT_DIR$/and_shop/and_shop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/and_ec/and_ec.iml" filepath="$PROJECT_DIR$/and_ec/and_ec.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/java_annotations/java_annotations.iml" filepath="$PROJECT_DIR$/java_annotations/java_annotations.iml" />
       <module fileurl="file://$PROJECT_DIR$/java_compiler/java_compiler.iml" filepath="$PROJECT_DIR$/java_compiler/java_compiler.iml" />

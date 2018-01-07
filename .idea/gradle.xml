@@ -9,7 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/and_core" />
-            <option value="$PROJECT_DIR$/and_shop" />
+            <option value="$PROJECT_DIR$/and_ec" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/java_annotations" />
             <option value="$PROJECT_DIR$/java_compiler" />

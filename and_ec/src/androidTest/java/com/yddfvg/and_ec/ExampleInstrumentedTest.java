@@ -1,4 +1,4 @@
-package test.com.and.shop;
+package com.yddfvg.and_ec;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 import static org.junit.Assert.*;
 
 /**
- * Instrumentation test, which will execute on an Android device.
+ * Instrumented test, which will execute on an Android device.
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("test.com.and.shop.test", appContext.getPackageName());
+        assertEquals("com.yddfvg.and_ec.test", appContext.getPackageName());
     }
 }
