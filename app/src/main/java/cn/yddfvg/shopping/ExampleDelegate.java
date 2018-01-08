@@ -24,7 +24,7 @@ public class ExampleDelegate extends ShoppingDelegate {
     //对每一个控件进行的操作
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
-        testRestClient();
+//        testRestClient();
     }
 
     private void testRestClient(){

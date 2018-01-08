@@ -31,7 +31,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile project(':java_annotations')
 
-    // 单页fragment 统一切换
+    // 单Activity 多fragment 统一切换
     compile 'me.yokeyword:fragmentation:1.1.10'
     // Swipeback is based on fragmentation. Refer to SwipeBackActivity/Fragment for your Customized SupportActivity/Fragment
     compile 'me.yokeyword:fragmentation-swipeback:1.1.10'
@@ -50,7 +50,7 @@ dependencies {
     compile "io.reactivex.rxjava2:rxjava:2.1.7"
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
     compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
-    compile 'com.alibaba:fastjson:1.1.57.android'
+    compile 'com.alibaba:fastjson:1.2.15'
     //Banner依赖
     compile 'com.bigkoo:convenientbanner:2.0.5'
     compile 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar'

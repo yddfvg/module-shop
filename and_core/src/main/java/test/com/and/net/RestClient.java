@@ -1,18 +1,14 @@
 package test.com.and.net;
 
 import android.content.Context;
-import android.support.v7.app.AlertDialog;
-
 import java.io.File;
 import java.util.Map;
 import java.util.WeakHashMap;
-
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.http.Body;
 import test.com.and.net.CallBalock.IFaillure;
 import test.com.and.net.CallBalock.IRequset;
 import test.com.and.net.CallBalock.ISuccess;

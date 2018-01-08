@@ -14,6 +14,7 @@ public class BaseTimerTask extends TimerTask {
         this.mtimerListener = mtimerListener;
     }
 
+    // 定时执行的方法
     @Override
     public void run() {
         if (mtimerListener != null) {
