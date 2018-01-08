@@ -12,6 +12,8 @@ import java.util.ArrayList;
 
 import test.com.and.delegets.ShoppingDelegate;
 import test.com.and.ui.launcher.LauncherHolderCreator;
+import test.com.and.ui.launcher.ScrollLauncherTag;
+import test.com.and.utils.LattePreference;
 
 /**
  * Created by Administrator on 2018/1/8.
@@ -50,6 +52,10 @@ public class LauncherScrollDelegate extends ShoppingDelegate implements OnItemCl
 
     @Override
     public void onItemClick(int position) {
-
+        if (position == INTEGERS.size()-1) {
+            // 第一次出现
+            LattePreference.setAppFlag(ScrollLauncherTag.HAS_FIRST_LAUNCHER_APP.name(),true);
+            // 检查用户是否已经登录了
+        }
     }
 }

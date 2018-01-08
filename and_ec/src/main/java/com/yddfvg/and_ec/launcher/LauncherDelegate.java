@@ -15,6 +15,8 @@ import java.util.Timer;
 import butterknife.BindView;
 import butterknife.OnClick;
 import test.com.and.delegets.ShoppingDelegate;
+import test.com.and.ui.launcher.ScrollLauncherTag;
+import test.com.and.utils.LattePreference;
 import test.com.and.utils.timer.BaseTimerTask;
 import test.com.and.utils.timer.iTimerListener;
 
@@ -32,7 +34,11 @@ public class LauncherDelegate extends ShoppingDelegate implements iTimerListener
 
     @OnClick(R2.id.tv_launcher_timer)
     void onChickTimerView(){
-
+        if (timer != null) {
+            timer.cancel();
+            timer = null;
+            checkisShowScroll();
+        }
     }
 
     private void initTimer(){
@@ -52,6 +58,15 @@ public class LauncherDelegate extends ShoppingDelegate implements iTimerListener
         initTimer();
     }
 
+    // 判断是否显示滑动启动页
+    private void checkisShowScroll(){
+        if (!LattePreference.getAppFlag(ScrollLauncherTag.HAS_FIRST_LAUNCHER_APP.name())) {
+            start(new LauncherScrollDelegate(), SINGLETASK);
+        } else {
+            // 检查用户是否登录
+        }
+    }
+
     @Override
     public void onTimer() {
         getProxyActivity().runOnUiThread(new Runnable() {
@@ -64,6 +79,7 @@ public class LauncherDelegate extends ShoppingDelegate implements iTimerListener
                         if (timer != null) {
                             timer.cancel();
                             timer = null;
+                            checkisShowScroll();
                         }
                     }
                 }
